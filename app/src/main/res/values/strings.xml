@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">Data Input 1</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string-array name="selection">
+        <item>1 selected</item>
+        <item>select all</item>
+    </string-array>
+    <string name="clean_client">لا يوجد دورة حالية لهذا العميل , من فضلك اضغط على زر الخيارات أعلاه واختر \"دورة جديدة\" .</string>
+    <string name="about">
+        What\'s this app used for?\n
+        I made This app as an example for Table-based data entry in android.\n
+        Offering the ability to make table-based calculations
+        that are represented as a ListView/RecyclerView,this program proved to be handy.\n
+        Made by S.E. Muhammad Ali.\n\n\n
+        Contact me :\n
+
+    </string>
+    <string name="twitter"><u>ZaTribune</u></string>
+    <string name="phone">+201114388288</string>
+    <string name="button_drawer">button drawer</string>
+    <string name="home">Home</string>
+    <string name="error_period_beginning">Starting date must not exceed ending end</string>
+    <string name="period_from">Period from : %1$s</string>
+    <string name="period_to">Period to : %1$s</string>
+    <string name="tv_period_from">Period from :</string>
+    <string name="tv_period_to">Period to :</string>
+    <string name="period_id">Period id : %1$d</string>
+    <string name="no_operations_available">No operations available</string>
+    <string name="clear_first">Enlisted operations must be closed out first.</string>
+    <string name="total">"Total : %1$d"</string>
+    <string name="period_max">Must not exceed %1$d days.</string>
+    <string name="period_min">Must not be less than %1$d days.</string>
+    <string name="confirm_closeout">Confirm close out?</string>
+    <string name="closeout">closeout</string>
+    <string name="pic">pic</string>
+    <string name="dummyString">grgmjrkgkrmgkgmrkmgrmgkrmgrkgmrgmrgkmrkmgrgkmrkmgrgkmgrkgmrkgmrgmrkgmrmgr</string>
+    <string name="ok">OK</string>
+    <string name="info_day">Day info.</string>
+    <string name="dinner">Dinner</string>
+    <string name="info_lunch">lunch info</string>
+    <string name="lunch">Lunch</string>
+    <string name="breakfast">Breakfast</string>
+</resources>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+        <item android:title="تصفية الحساب " android:orderInCategory="0"/>
+        <item android:title="دورة جديدة " android:orderInCategory="1"/>
+</menu>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/toolbar_1"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="@color/colorPrimary"
+    app:contentInsetStart="0dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical">
+<RelativeLayout android:id="@+id/btn_options"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentRight="true"
+    android:layout_alignParentEnd="true"
+    android:background="?attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true">
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:scaleX="0.6"
+        android:scaleY="0.6"
+        android:background="@mipmap/drawer_2"
+        android:contentDescription="@string/button_drawer" />
+   </RelativeLayout>
+    <TextView android:id="@+id/tv_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            android:gravity="center"
+            android:textColor="@color/white"/>
+    </RelativeLayout>
+
+</androidx.appcompat.widget.Toolbar>
