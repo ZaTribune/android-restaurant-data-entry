@@ -1,39 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
     android:clickable="true"
+    android:focusable="true"
     android:onClick="control"
-    android:focusable="true">
-    <!--
-    represents activity's specific tools
-    -->
-    <ViewSwitcher android:id="@+id/vs_toolbar"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <ViewSwitcher
+        android:id="@+id/vs_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inAnimation="@android:anim/fade_in"
         android:outAnimation="@android:anim/fade_out">
-        <include layout="@layout/toolbar_1"/>
-        <include layout="@layout/toolbar_2"/>
+
+        <include layout="@layout/toolbar_1" />
+
+        <include layout="@layout/toolbar_2" />
     </ViewSwitcher>
 
-    <FrameLayout android:id="@+id/container"
+    <FrameLayout
+        android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white"
-        android:layout_below="@id/vs_toolbar">
+        android:layout_below="@id/vs_toolbar"
+        android:background="@color/white">
 
         <GridView
             android:id="@+id/gv1"
-            android:numColumns="4"
-            android:columnWidth="100dp"
-            android:minHeight="145dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:clickable="false"
-             />
+            android:columnWidth="100dp"
+            android:minHeight="145dp"
+            android:numColumns="4" />
     </FrameLayout>
 </RelativeLayout>

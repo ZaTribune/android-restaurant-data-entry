@@ -1,38 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.Toolbar
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/toolbar_2"
     android:layout_width="match_parent"
     android:layout_height="50dp"
-    android:background="@color/colorPrimary"
-    app:contentInsetStart="0dp"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:background="@color/colorPrimaryDark"
+    app:contentInsetStart="0dp">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center_vertical">
-        <Spinner android:id="@+id/spinner_select"
+
+        <Spinner
+            android:id="@+id/spinner_select"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:textColor="@color/yellow"
-            android:layout_centerVertical="true"
-            android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
-            />
-        <ImageButton android:id="@+id/btn_delete"
-            android:layout_width="50dp"
-            android:scaleX="0.5"
-            android:scaleY="0.5"
-            android:layout_height="match_parent"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:tint="@color/white"
-            android:src="@mipmap/trash_0"
-            android:onClick="control"
             android:layout_centerVertical="true"
-            android:layout_toLeftOf="@id/spinner_select"
+            android:textColor="@color/yellow"
+            android:backgroundTint="@color/white"/>
+
+        <ImageButton
+            android:id="@+id/btn_delete"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
             android:layout_toStartOf="@id/spinner_select"
-            style="?attr/buttonBarButtonStyle"/>
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/delete"
+            android:onClick="control"
+            android:src="@drawable/trash" />
     </RelativeLayout>
 
 </androidx.appcompat.widget.Toolbar>

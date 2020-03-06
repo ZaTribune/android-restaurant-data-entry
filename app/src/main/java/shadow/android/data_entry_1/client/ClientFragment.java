@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.PopupMenu;
@@ -61,7 +62,7 @@ public class ClientFragment extends Fragment {
     private TextView  tv_from,tv_to,tv_number;
     private ListView lv_days;
     private ViewSwitcher vs_toolbar;
-    private RelativeLayout btn_options;
+    private ImageButton btn_options;
     private PopupWindow popupWindow;
     private DayAdapter dayAdapter;
     private List<Day> days;

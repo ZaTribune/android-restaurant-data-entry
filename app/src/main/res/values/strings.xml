@@ -42,4 +42,7 @@
     <string name="lunch">Lunch</string>
     <string name="breakfast">Breakfast</string>
     <string name="name">Name ...</string>
+    <string name="delete">Delete</string>
+    <string name="new_cycle">New cycle</string>
+    <string name="new_client">New client</string>
 </resources>
