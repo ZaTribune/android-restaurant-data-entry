@@ -1,11 +1,16 @@
 # ZaTribune
 # Android_Data_Entry_1_Restaurant [A simple example]
 An Application to manage clients' financial operations within a restaurant.
-
 <p align="center">
-  <img src="screenshots/logo.png" height="300"/>
-  <img src="screenshots/splashscreen.jpg" height="300"/>
-  <img src="screenshots/progress encoding.jpg" height="300"/>
+<img src="app/screenshots/logo.png" height="200"/>
+</p>
+<p align="center">
+  <img src="app/screenshots/Data Entry (1).jpg" height="300"/>
+  <img src="app/screenshots/Data Entry (2).jpg" height="300"/>
+  <img src="app/screenshots/Data Entry (3).jpg" height="300"/>
+  <img src="app/screenshots/Data Entry (4).jpg" height="300"/>
+  <img src="app/screenshots/Data Entry (6).jpg" height="300"/>
+  <img src="app/screenshots/Data Entry (7).jpg" height="300"/>
 </p>
 
 ## Overview  
