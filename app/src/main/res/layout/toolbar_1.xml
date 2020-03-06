@@ -17,7 +17,7 @@
             android:layout_height="50dp"
             android:src="@drawable/drawer"
             android:layout_alignParentStart="true"
-            android:background="?attr/selectableItemBackgroundBorderless"
+            android:background="?attr/selectableItemBackground"
             android:contentDescription="@string/button_drawer"/>
 
         <TextView

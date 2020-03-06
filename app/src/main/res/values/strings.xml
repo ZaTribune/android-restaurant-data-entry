@@ -28,7 +28,7 @@
     <string name="period_id">Period id : %1$d</string>
     <string name="no_operations_available">No operations available</string>
     <string name="clear_first">Enlisted operations must be closed out first.</string>
-    <string name="total">"Total : %1$d"</string>
+    <string name="total">Total : %1$s</string>
     <string name="period_max">Must not exceed %1$d days.</string>
     <string name="period_min">Must not be less than %1$d days.</string>
     <string name="confirm_closeout">Confirm close out?</string>

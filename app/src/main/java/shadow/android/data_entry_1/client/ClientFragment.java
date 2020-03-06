@@ -118,7 +118,6 @@ public class ClientFragment extends Fragment {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             client = (Client) getArguments().getSerializable(ARG_CLIENT);
-
         }
     }
     private View.OnClickListener onClickListener=new View.OnClickListener() {
@@ -155,7 +154,7 @@ public class ClientFragment extends Fragment {
                     popupWindow.showAsDropDown(vs_toolbar,offset.getX(),offset.getY());
                     dimPopupParent(popupWindow.getContentView().getRootView(),true);
                     popupWindow.getContentView().findViewById(R.id.btn_cash).setOnClickListener(cashClickListener);
-                    ((TextView)popupWindow.getContentView().findViewById(R.id.tv_total)).setText(getString(R.string.total,sum));
+                    ((TextView)popupWindow.getContentView().findViewById(R.id.tv_total)).setText(getString(R.string.total,String.valueOf(sum)));
                     break;
                 case 1:
                     if(lv_days.getCount()>0){
@@ -256,14 +255,12 @@ public class ClientFragment extends Fragment {
                 Log.i("scroll",""+view.requestFocus());
                 //  الله أكبر ولله الحمد
             }
-
             @Override
-            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-
-            }
+            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) { }
         });
 
         if(getArguments()!=null) {
+            System.out.println(client);
             tv_toolbar.setText(client.getName());
             if(client.getThump()!=null)
             iv_pic.setImageBitmap(BitmapFactory.decodeByteArray(client.getThump(),0,client.getThump().length));
@@ -274,7 +271,7 @@ public class ClientFragment extends Fragment {
             Log.i(TAG,"period id :"+period.getId());
             Log.i(TAG,"days : "+days.size());
             if(period.getId()==0||days.size()==0) {
-                tv_number.setText(tv_number.getContext().getResources().getString(R.string.clean_client));
+                tv_to.setText(tv_number.getContext().getResources().getString(R.string.clean_client));
                 return view;
             }
             dayAdapter=new DayAdapter(getContext(),days);

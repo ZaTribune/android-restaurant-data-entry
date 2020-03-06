@@ -52,6 +52,7 @@ import static shadow.android.data_entry_1.ui.DisplayHelper.dimPopupParent;
 
 public class MainActivity extends AppCompatActivity implements ClientFragment.TaskIsDoneInterface {
     private static final int SD_REQUEST = 1;
+    private static final String TAG =MainActivity.class.getSimpleName();
     private TextView tv_toolbar;
     private ImageButton btn_options;
     private ImageButton btn_delete;
@@ -88,9 +89,9 @@ public class MainActivity extends AppCompatActivity implements ClientFragment.Ta
             }
             FragmentManager fm = getSupportFragmentManager();
             Fragment fragment = ClientFragment.newInstance(adapter.getItem(position));
-            fm.beginTransaction().replace(R.id.container, fragment, "client")
+            fm.beginTransaction().replace(R.id.container, fragment, ClientFragment.TAG)
                     .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-                    .addToBackStack("client").commit();
+                    .addToBackStack(ClientFragment.TAG).commit();
 
         }
 
@@ -355,14 +356,16 @@ public class MainActivity extends AppCompatActivity implements ClientFragment.Ta
     public void recreateFragment() {
         FragmentManager fm = getSupportFragmentManager();
         ClientFragment oldFragment = (ClientFragment) fm.findFragmentByTag(ClientFragment.TAG);
-        Client client = null;
+        Client client;
         if (oldFragment != null&&oldFragment.getArguments()!=null) {
+            Log.i(MainActivity.TAG,"recreate "+ClientFragment.TAG);
             client = (Client) oldFragment.getArguments().getSerializable("client");
+            fm.beginTransaction().remove(oldFragment).commit();
+            ClientFragment newFragment = ClientFragment.newInstance(client);
+            fm.beginTransaction().replace(R.id.container, newFragment, ClientFragment.TAG)
+                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                    .addToBackStack(ClientFragment.TAG).commit();
         }
-        ClientFragment newFragment = ClientFragment.newInstance(client);
-        fm.beginTransaction().remove(oldFragment).commit();
-        fm.beginTransaction().replace(R.id.container, newFragment, ClientFragment.TAG)
-                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-                .addToBackStack(ClientFragment.TAG).commit();
+
     }
 }

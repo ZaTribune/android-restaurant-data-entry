@@ -1,6 +1,7 @@
 package shadow.android.data_entry_1.db;
 
 import java.io.Serializable;
+import java.util.Arrays;
 
 public class Client implements Serializable {
     private long id;
@@ -42,4 +43,12 @@ public class Client implements Serializable {
         this.thump = thump;
     }
 
+    @Override
+    public String toString() {
+        return "Client{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", pic =" + (thump.length!=0?"yes "+thump.length:"no") +
+                '}';
+    }
 }
