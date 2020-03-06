@@ -1,12 +1,12 @@
 <resources>
-    <string name="app_name">Data Input 1</string>
+    <string name="app_name">Data Entry 1</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string-array name="selection">
         <item>1 selected</item>
         <item>select all</item>
     </string-array>
-    <string name="clean_client">لا يوجد دورة حالية لهذا العميل , من فضلك اضغط على زر الخيارات أعلاه واختر \"دورة جديدة\" .</string>
+    <string name="clean_client">There is no current cycle for this customer, please click on the Options button above and choose \ "New Cycle \" .</string>
     <string name="about">
         What\'s this app used for?\n
         I made This app as an example for Table-based data entry in android.\n
@@ -41,4 +41,5 @@
     <string name="info_lunch">lunch info</string>
     <string name="lunch">Lunch</string>
     <string name="breakfast">Breakfast</string>
+    <string name="name">Name ...</string>
 </resources>

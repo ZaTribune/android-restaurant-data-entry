@@ -2,13 +2,11 @@ package shadow.android.data_entry_1;
 
 
 import android.Manifest;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 
@@ -26,7 +24,6 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
@@ -34,7 +31,6 @@ import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.PopupWindow;
-import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -57,7 +53,7 @@ import static shadow.android.data_entry_1.ui.DisplayHelper.dimPopupParent;
 public class MainActivity extends AppCompatActivity implements ClientFragment.TaskIsDoneInterface {
     private static final int SD_REQUEST = 1;
     private TextView tv_toolbar;
-    private RelativeLayout btn_options;
+    private ImageButton btn_options;
     private ImageButton btn_delete;
     private ImageButton btn_thump;
     private Spinner spinner_select;
@@ -180,7 +176,7 @@ public class MainActivity extends AppCompatActivity implements ClientFragment.Ta
             case R.id.btn_delete:
                 clearSelection();
                 break;
-            case R.id.ibtn_thump:
+            case R.id.btn_thump:
                 if (checkPermissionAccessStorage()) {
                     //if u try to add another client, this intent wont fire again as the value of permission is reset again
                     Log.i(MainActivity.class.getSimpleName(), "permission Access Storage granted");
@@ -293,7 +289,7 @@ public class MainActivity extends AppCompatActivity implements ClientFragment.Ta
             String filePath = cursor.getString(columnIndex);//ex. /storage/sdcard1/DCIM/Camera/IMG_20170706_184224_1.jpg
             cursor.close();
             selectedBitmap = MediaHelper.decodeSampledBitmapFromPath(filePath, 400, 400);
-            btn_thump = popup_add.getContentView().findViewById(R.id.ibtn_thump);
+            btn_thump = popup_add.getContentView().findViewById(R.id.btn_thump);
             btn_thump.setImageBitmap(selectedBitmap);
         }
     }

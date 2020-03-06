@@ -13,30 +13,31 @@
                 android:layout_height="wrap_content"
                 android:maxLines="3"
                 android:maxLength="50"
-                android:hint="ادخل الإسم ...."
-                android:inputType="text" />
+                android:hint="@string/name"
+                android:inputType="text"
+                android:importantForAutofill="no" />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center">
-        <ImageButton android:id="@+id/ibtn_thump"
+        <ImageButton android:id="@+id/btn_thump"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@mipmap/img_0"
+            android:src="@drawable/add_pic"
             android:scaleType="fitXY"
-            android:background="?android:attr/selectableItemBackground"
-            android:onClick="control"/>
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:onClick="control"
+            android:contentDescription="@string/pic" />
         <Button android:id="@+id/btn_submit_user"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/ibtn_thump"
-            android:text="OK"
+            android:layout_toEndOf="@id/btn_thump"
+            android:text="@string/ok"
             android:textColor="@color/colorPrimaryDark"
             android:background="?android:attr/selectableItemBackground"
-            android:onClick="control"
-            android:layout_toRightOf="@id/ibtn_thump" />
+            android:onClick="control" />
     </RelativeLayout>
 
 

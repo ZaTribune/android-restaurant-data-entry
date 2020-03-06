@@ -22,8 +22,7 @@
                 android:layout_height="50dp"
                 android:layout_gravity="center_horizontal"
                 android:autoLink="phone"
-                android:drawableLeft="@mipmap/phone0"
-                android:drawableStart="@mipmap/phone0"
+                android:drawableStart="@drawable/phone"
                 android:text="@string/phone"
                 android:textColorLink="@color/colorPrimaryDark"
                 android:gravity="center" />
@@ -33,8 +32,7 @@
                 android:layout_height="50dp"
                 android:layout_gravity="center_horizontal"
                 android:autoLink="web"
-                android:drawableLeft="@mipmap/twitter0"
-                android:drawableStart="@mipmap/twitter0"
+                android:drawableStart="@drawable/twitter"
                 android:text="@string/twitter"
                 android:textColorLink="@color/colorPrimaryDark"
                 android:gravity="center" />
