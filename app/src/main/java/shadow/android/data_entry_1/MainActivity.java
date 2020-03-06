@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -44,6 +45,7 @@ import shadow.android.data_entry_1.about.AboutFragment;
 import shadow.android.data_entry_1.client.ClientFragment;
 import shadow.android.data_entry_1.db.Client;
 import shadow.android.data_entry_1.db.DBController;
+import shadow.android.data_entry_1.ui.ClientIconAdapter;
 import shadow.android.data_entry_1.ui.DisplayHelper;
 import shadow.android.data_entry_1.ui.MediaHelper;
 import shadow.android.data_entry_1.ui.Offset;
@@ -57,6 +59,7 @@ public class MainActivity extends AppCompatActivity implements ClientFragment.Ta
     private ImageButton btn_delete;
     private ImageButton btn_thump;
     private Spinner spinner_select;
+
     private ArrayAdapter<String> spinnerAdapter;
     private GridView gv1;
     private ClientIconAdapter adapter;
@@ -75,12 +78,12 @@ public class MainActivity extends AppCompatActivity implements ClientFragment.Ta
                 CheckBox checkBox = view.findViewById(R.id.cbox_select);
                 if (checkBox.isChecked()) {
                     checkBox.setChecked(false);
-                    Log.i("deselect", "" + checkBox.getTag());
-                    selectedNoteIcons.remove(checkBox.getTag());
+                    Log.i("deselect", "" + position);
+                    selectedNoteIcons.remove(position);
                 } else {
                     checkBox.setChecked(true);
-                    Log.i("select", "" + checkBox.getTag());
-                    selectedNoteIcons.add((Integer) checkBox.getTag());
+                    Log.i("select", "" + position);
+                    selectedNoteIcons.add(position);
                 }
                 //modify the options of the spinner
                 updateSpinner();
@@ -142,7 +145,12 @@ public class MainActivity extends AppCompatActivity implements ClientFragment.Ta
             popup_options.show();
         }
     };
-
+    private AdapterView.OnItemSelectedListener OnCatSpinnerCL = new AdapterView.OnItemSelectedListener() {
+        public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+            ((TextView) parent.getChildAt(0)).setTextColor(Color.WHITE);
+        }
+        public void onNothingSelected(AdapterView<?> parent) {}
+    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -155,13 +163,14 @@ public class MainActivity extends AppCompatActivity implements ClientFragment.Ta
         btn_delete = vs_toolbar.findViewById(R.id.btn_delete);
         btn_delete.setOnClickListener(deleteIconsClick);
         tv_toolbar = findViewById(R.id.tv_toolbar);
-        tv_toolbar.setText(getString(R.string.home));
+        tv_toolbar.setText(R.string.home);
         btn_options = findViewById(R.id.btn_options);
         btn_options.setOnClickListener(btnOptionsListener);
-        ArrayList<String> list = new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.selection)));
+
         spinnerAdapter = new ArrayAdapter<>(MainActivity.this,
-                android.R.layout.simple_list_item_1,
-                list);
+                android.R.layout.simple_spinner_dropdown_item,
+                Arrays.asList(getResources().getStringArray(R.array.selection)));
+        
         gv1.setOnItemLongClickListener(longClickListener);
         gv1.setOnItemClickListener(clickListener);
 
@@ -188,7 +197,7 @@ public class MainActivity extends AppCompatActivity implements ClientFragment.Ta
             case R.id.btn_submit_user:
                 EditText et_name = popup_add.getContentView().findViewById(R.id.et_name);
                 if (et_name.getText().toString().equals("") || et_name.getText() == null) {
-                    Toast.makeText(MainActivity.this, "لا بد من إدخال الاسم", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this,R.string.enter_name, Toast.LENGTH_SHORT).show();
                     return;
                 }
                 boolean ok = DBController.addClient(getApplicationContext(),
