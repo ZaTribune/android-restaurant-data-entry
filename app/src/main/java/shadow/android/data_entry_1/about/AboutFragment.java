@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -33,7 +34,7 @@ public class AboutFragment extends Fragment {
     }
 
     @Override
-    public void onAttach(Context context) {
+    public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         taskIsDoneInterface= (ClientFragment.TaskIsDoneInterface) context;
     }
@@ -51,7 +52,7 @@ public class AboutFragment extends Fragment {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_about, container, false);
         TextView tv_toolbar = Objects.requireNonNull(getActivity()).findViewById(R.id.tv_toolbar);
-        RelativeLayout btn_options = getActivity().findViewById(R.id.btn_options);
+        ImageButton btn_options = getActivity().findViewById(R.id.btn_options);
 
         TextView tv_twitter = view.findViewById(R.id.tv_twitter);
 
@@ -62,8 +63,8 @@ public class AboutFragment extends Fragment {
             startActivity(intent);
         });
 
-        tv_toolbar.setText("عن البرنامج");
-        btn_options.setVisibility(View.INVISIBLE);
+        tv_toolbar.setText(R.string.about_app);
+        btn_options.setVisibility(View.GONE);
         return view;
     }
 

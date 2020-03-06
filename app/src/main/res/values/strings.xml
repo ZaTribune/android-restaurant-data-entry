@@ -46,4 +46,5 @@
     <string name="new_cycle">New cycle</string>
     <string name="new_client">New client</string>
     <string name="enter_name">Please, enter name!</string>
+    <string name="about_app">About</string>
 </resources>

@@ -120,17 +120,15 @@ public class MainActivity extends AppCompatActivity implements ClientFragment.Ta
             selectedNoteIcons.add(position);//because the long clicked item is checked
             ((CheckBox) (gv1.getChildAt(position).findViewById(R.id.cbox_select))).setChecked(true);
             CheckBox checkBox;
-            gv1.getChildAt(position).findViewById(R.id.cbox_select).setTag(position);
             //show the 2nd toolbar first
             if (vs_toolbar.getCurrentView().getId() == R.id.toolbar_1)
                 vs_toolbar.showNext();
             //initialize and display the spinner
-            spinner_select.setAdapter(spinnerAdapter);
+
             updateSpinner();
             for (int x = 0; x < gv1.getChildCount(); x++) {
                 checkBox = gv1.getChildAt(x).findViewById(R.id.cbox_select);
                 checkBox.setVisibility(View.VISIBLE);
-                checkBox.setTag(x);
             }
             return true;//to indicate you don't want further processing as onClick
         }
@@ -145,12 +143,7 @@ public class MainActivity extends AppCompatActivity implements ClientFragment.Ta
             popup_options.show();
         }
     };
-    private AdapterView.OnItemSelectedListener OnCatSpinnerCL = new AdapterView.OnItemSelectedListener() {
-        public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-            ((TextView) parent.getChildAt(0)).setTextColor(Color.WHITE);
-        }
-        public void onNothingSelected(AdapterView<?> parent) {}
-    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -166,11 +159,32 @@ public class MainActivity extends AppCompatActivity implements ClientFragment.Ta
         tv_toolbar.setText(R.string.home);
         btn_options = findViewById(R.id.btn_options);
         btn_options.setOnClickListener(btnOptionsListener);
+        ArrayList<String> list = new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.selection)));
 
         spinnerAdapter = new ArrayAdapter<>(MainActivity.this,
                 android.R.layout.simple_spinner_dropdown_item,
-                Arrays.asList(getResources().getStringArray(R.array.selection)));
-        
+                list);
+        spinner_select.setAdapter(spinnerAdapter);
+
+        spinner_select.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (position==1) {
+                    selectedNoteIcons.clear();
+                    for (int x = 0; x < gv1.getChildCount(); x++) {
+                        ((CheckBox) gv1.getChildAt(x).findViewById(R.id.cbox_select)).setChecked(true);
+                        selectedNoteIcons.add(x);
+                    }
+                    updateSpinner();
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
         gv1.setOnItemLongClickListener(longClickListener);
         gv1.setOnItemClickListener(clickListener);
 
@@ -272,7 +286,6 @@ public class MainActivity extends AppCompatActivity implements ClientFragment.Ta
         if (selectedNoteIcons.size() != 0||inSelectionMode) clearSelection();
         else super.onBackPressed();
         //getSupportFragmentManager().registerFragmentLifecycleCallbacks(new FragmentManager.FragmentLifecycleCallbacks() {});
-
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -335,6 +348,7 @@ public class MainActivity extends AppCompatActivity implements ClientFragment.Ta
 
     @Override
     public void done() {
+        //called from any added fragment to restore MainActivity state
         tv_toolbar.setText(R.string.home);
         btn_options.setVisibility(View.VISIBLE);
         btn_options.setOnClickListener(btnOptionsListener);
