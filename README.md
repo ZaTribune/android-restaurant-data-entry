@@ -1,5 +1,5 @@
 # ZaTribune
-# Android_Data_Entry_1_Restaurant [A simple example]
+# Android Data Entry For a Restaurant [A simple example]
 An Application to manage clients' financial operations within a restaurant.
 <p align="center">
 <img src="app/screenshots/logo.png" height="200"/>
