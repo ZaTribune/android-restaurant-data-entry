@@ -1,6 +1,6 @@
-# ZaTribune
-# Android Data Entry For a Restaurant [A simple example]
-An Application to manage clients' financial operations within a restaurant.
+
+## Android Restaurant Data Entry
+A Demo Application for managing clients' financial operations within a restaurant.
 <p align="center">
 <img src="app/screenshots/logo.png" height="200"/>
 </p>
