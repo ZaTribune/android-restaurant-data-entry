@@ -30,5 +30,5 @@ A Demo Application for managing clients' financial operations within a restauran
 &nbsp;&nbsp;&nbsp;&nbsp;**Gradle** - Build tool & Dependency Management.   
 
 ## Authors  
-   **Muhammad Ali** - find me on : [Twitter](https://twitter.com/ZaTribune)[LinkedIn](https://www.linkedin.com/in/zatribune).  
+   **Muhammad Ali** - find me on : [LinkedIn](https://www.linkedin.com/in/zatribune).  
 
